@@ -1,3 +1,3 @@
 # Tic-Tac-Toe
-Simple Tic-Tac-Toe in python 3.6 with tkinter GUI.
-working on this code to make it more readable.
+My first Tic Tac Toe program in python 3.6 with tkinter GUI.
+ am working on this code to make it more readable.  I welcome any code reviews and pull requests!.
