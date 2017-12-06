@@ -11,7 +11,7 @@ humanchoiceT =[]
 def Exit():
     msg = messagebox.askyesno("Exit","are you sure you want exit?")
     if msg is True:
-        exit()
+        root.destroy()
 def Rest():
     defultdata()
     defultAppearance()
