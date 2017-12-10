@@ -1,12 +1,18 @@
+'''
+click on a square -> if statment checks if this square is not chosen(white)
+and not in computer list ->check for winer -> computer turn(random choise from the free squares)
+->check for winer -> and so on until all the squares chosen
+
+'''
+
 from tkinter import *
 from tkinter import messagebox
 
-L=[1,2,3,4,5,6,7,8,9]
-CCS = 0
-computerchoice = []
-humanchoice =[]
-computerchoiceT =[]
-humanchoiceT =[]
+CCS = 0 #declaring computer chosen square in a variable
+computerchoice = [] #list of the choices the computer took
+humanchoice =[] #list of the choices the Human took
+computerchoiceT =[] #copy of the list of the choices the computer took to edit it without effecting the choise in the orignal one
+humanchoiceT =[] #copy of the list of the choices the Human took to edit it without effecting the choise in the orignal one
 
 def Exit():
     msg = messagebox.askyesno("Exit","are you sure you want exit?")
@@ -28,21 +34,21 @@ def defultdata():
     computerchoiceT =[]
     humanchoiceT =[]
     
-def Winner(the_winner):
+def Winner(the_winner): #winner msg and draw msg
     msg = messagebox.askyesno(the_winner,"Play Again?!")
     if msg is True:
         Rest()
     else:
         Exit()
 
-def test(listofthetested1,listofthetested2,sentence):
-    global computerchoice
-    global humanchoice
-    global computerchoiceT
-    global humanchoiceT
-    winList=[[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]]
+def test(listofthetested1,listofthetested2,sentence): #this function test if the win nums in any of lists of the players
+    #listofthetested1 is the orignal list formed
+    #listofthetested2 is the copy of the orignal list
+    #sentence the player we are checking his formed list
+
+    winList=[[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]] #every list in the sub list must be sorted
     
-    if len(listofthetested1) == 3:
+    if len(listofthetested1) == 3: 
         if sorted(listofthetested2) in winList:
             Winner(sentence)
         else:
@@ -88,10 +94,10 @@ def test(listofthetested1,listofthetested2,sentence):
                 
 def random():
     import random
-    global L
     global CCS
     global computerchoice
     global humanchoice
+    L=[1,2,3,4,5,6,7,8,9]
     while len(humanchoice)<=4:
         CCS = random.sample(L,1)[0]
         if not CCS in computerchoice and not CCS in humanchoice:
