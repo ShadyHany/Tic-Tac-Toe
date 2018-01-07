@@ -1,4 +1,5 @@
 '''
+how does it work:
 click on a square -> if statment checks if this square is not chosen(white)
 and not in computer list ->check for winer -> computer turn(random choise from the free squares)
 ->check for winer -> and so on until all the squares chosen
